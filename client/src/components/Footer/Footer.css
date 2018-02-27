@@ -1,6 +1,9 @@
-h1, h3 {
+#ftr {
     text-align: center;
     color: white;
+    font-size: 12px;
+    padding: 5%;
+    
 }
 
 .footer {
