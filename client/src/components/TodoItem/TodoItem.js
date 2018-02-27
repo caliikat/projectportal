@@ -1,10 +1,21 @@
-import React from "react";
+import React, {Component} from "react";
 import "./TodoItem.css";
 
 
-const TodoItem = props =>
-    <div>
+export class TodoItem extends Component {
+    Constructor() {
+        // super(...arguments);
+    }
 
-    </div>
-
-export default TodoItem;
+    render() {
+        
+        return (
+            <div className="todoitem">
+                <div className="contain">
+                    
+                </div>
+            </div>
+        )
+    }
+}
+   

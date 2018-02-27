@@ -2,9 +2,22 @@ import React from "react";
 import "./TodoList.css";
 import TodoItem from "../TodoItem/TodoItem";
 
-const TodoList = props =>
-  <div>
-    
-  </div>;
+function TodoList ({todo, updateTodo, removeTodo}) {
+  let todoItems = todo.map((todo, index) => {
+    return (
+      <TodoItem
+        key={index}
+        todo={todo}
+        updateTodo={updateTodo}
+        removeTodo={removeTodo}
+      />
+    );
+  });
+  return (
+    <div className="todoList">
+      {todoItems}
+    </div>
+  );
+}
 
 export default TodoList;
