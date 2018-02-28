@@ -2,20 +2,27 @@ import React, {Component} from "react";
 import "./TodoItem.css";
 
 
-export class TodoItem extends Component {
-    Constructor() {
-        // super(...arguments);
-    }
+const TodoItem = props => {
+    
+    <div className="todoitem">
+        <div className="content">
+            <ul>
+                <li>
+                     <p>Queue Title:</p> {props.queueTitle}
+                </li>
+                <li>
+                    <p>Description:</p> {props.description}
+                </li>
+                <li>
+                    <p>Due Date:</p> {props.dueDate}
+                </li>
+            </ul>
+        </div>
 
-    render() {
-        
-        return (
-            <div className="todoitem">
-                <div className="contain">
-                    
-                </div>
-            </div>
-        )
-    }
-}
-   
+        <span onClick={() => props.removeTodo(props.id)} className="removeTodo">
+        </span>
+
+    </div>
+};
+
+export default TodoItem;

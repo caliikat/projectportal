@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 import "./TodoForm.css";
 
 class TodoForm extends Component {
@@ -13,9 +12,13 @@ class TodoForm extends Component {
     inputChange = (event) => {
         // Value and name of each input
         let value = event.target.value;
-        const name = event.targer.name;
+        const name = event.target.name;
 
-    }
+        this.setState({
+            [name]: value
+        });
+    };
+    
     // WE NEED TO ADD STUFF HERE!!! LIKE ADDING TO MONGODB ETC!!!!!!!
     // Handles what happens upon submitting
     toSubmit = (event) => {
