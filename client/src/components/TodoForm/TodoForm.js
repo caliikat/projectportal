@@ -2,38 +2,75 @@ import React, {Component} from "react";
 
 import "./TodoForm.css";
 
-export class TodoForm extends Component {
+class TodoForm extends Component {
 
-    constructor() {
-        super(...arguments);
-        this.state = {Description: ""};
-        this.toSubmit = this.toSubmit();
+    state = {
+        queueTitle: "",
+        description: "",
+        dueDate: ""
     }
+    // Handles input changes
+    inputChange = (event) => {
+        // Value and name of each input
+        let value = event.target.value;
+        const name = event.targer.name;
 
-    toSubmit(event) {
+    }
+    // WE NEED TO ADD STUFF HERE!!! LIKE ADDING TO MONGODB ETC!!!!!!!
+    // Handles what happens upon submitting
+    toSubmit = (event) => {
         event.preventDefault();
-        const description = this.state.Description.trim();
-        if(description) {
-            this.props.toSubmit(description);
-            this.clearInput();
-        }
-    }
+
+        //If there is nothing in the fields alert user
+        if (!this.state.queueTitle || !this.state.description || !this.state.dueDate) {
+            alert("Please fill every entry of form.");
+        } 
+        // const description = this.state.description.trim();
+        // if(description) {
+        //     this.props.toSubmit(description);
+        // }
+
+        // Clear input form after submission
+        this.clearInput();
+        
+    };
 
     clearInput() {
-        this.setState({Description: ""});
-    }
+        this.setState({
+            queueTitle: "",
+            description: "",
+            dueDate: ""
+        });
+    };
 
     render() {
         return (
-            <form className="todoform" onSubmit={this.toSubmit}>
+            <form className="todoform">
                 <input
-                    className="todoFormInput"
-                    placeholder="What do you need to do?"
+                    value={this.state.queueTitle}
+                    name="queueTitle"
+                    onChange={this.inputChange}
                     type="text"
-                    value={this.state.Description}
+                    placeholder="Queue Title"
                 />
+                <input
+                    value={this.state.description}
+                    name="description"
+                    onChange={this.inputChange}
+                    type="text"
+                    placeholder="Description"
+                />
+                <input
+                    value={this.state.dueDate}
+                    name="dueDate"
+                    onChange={this.inputChange}
+                    type="text"
+                    placeholder="Due Date"
+                />
+                <button onClick={this.toSubmit}>Submit</button>
             </form>
         );
     }
 }
 
+export default TodoForm;
