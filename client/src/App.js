@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Nav from "./components/Nav";
 import Wrapper from "./components/Wrapper";
@@ -31,6 +32,9 @@ class App extends Component {
       <div className="App">
         <Nav />
         <Wrapper>
+          {/* <Route path="/" component={Home}/>
+          <Route path="/jobQueue" component={TodoList}/> */}
+
           <TodoForm />
           {this.state.todos.map(todo => (
             <TodoItem
@@ -43,6 +47,7 @@ class App extends Component {
             />
           ))}
           <TodoList/>
+
         </Wrapper>
         <Footer />
       </div>
