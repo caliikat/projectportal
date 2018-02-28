@@ -13,9 +13,8 @@ class App extends Component {
       <div className="App">
         <Nav />
         <Wrapper>
-          <TodoList
-
-          />
+          <TodoForm />
+          <TodoList/>
         </Wrapper>
         <Footer />
       </div>
