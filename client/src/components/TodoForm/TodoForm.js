@@ -28,6 +28,8 @@ class TodoForm extends Component {
         if (!this.state.queueTitle || !this.state.description || !this.state.dueDate) {
             alert("Please fill every entry of form.");
         } 
+        console.log("Calling addTodo");
+        this.props.addTodo(this.state.queueTitle, this.state.description, this.state.dueDate);
         // const description = this.state.description.trim();
         // if(description) {
         //     this.props.toSubmit(description);
