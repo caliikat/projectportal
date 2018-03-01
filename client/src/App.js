@@ -27,6 +27,18 @@ class App extends Component {
     this.setState({ todos});
   };
 
+  addTodo = ( queueTitle, description, dueDate ) => {
+    let todos = this.state.todos; 
+    todos.push({
+      "id": (new Date).getTime(),
+      "queueTitle": queueTitle,
+      "description": description,
+      "dueDate": dueDate,
+    })
+    this.setState({ todos}); 
+    console.log(todos);   
+  }
+
   render() {
     return (
       <div className="App">
@@ -35,18 +47,16 @@ class App extends Component {
           {/* <Route path="/" component={Home}/>
           <Route path="/jobQueue" component={TodoList}/> */}
 
-          <TodoForm />
-          {this.state.todos.map(todo => (
-            <TodoItem
-              removeTodo={this.removeTodo}
-              id={todo.id}
-              key={todo.id}
-              queueTitle={todo.queueTitle}
-              description={todo.description}
-              dueDate={todo.dueDate}
-            />
-          ))}
-          <TodoList/>
+          <TodoForm 
+            addTodo= { this.addTodo}
+            
+          />
+          
+           <TodoList 
+              todo={this.state.todos} 
+              updateTodo={ () => {} } 
+              removeTodo={ this.removeTodo }
+           /> 
 
         </Wrapper>
         <Footer />
