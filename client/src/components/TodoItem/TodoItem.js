@@ -12,15 +12,11 @@ const TodoItem = props => {
                         <p><b>Description:</b> {props.description}</p> 
                         <p><b>Due Date:</b> {props.dueDate}</p> 
                     </div>
-                    <button className="dButton">Delete</button>
-                    <button className="eButton">Edit</button>
+                    <button className="dButton" onClick={() => props.removeTodo(props.id)}>Delete</button>
+                    <button className="eButton" onClick={() => props.editTodo()}>Edit</button>
                 </div>
                 
             </div>
-            
-
-            <span onClick={() => props.removeTodo(props.id)} className="removeTodo">
-            </span>
 
         </div>
     );

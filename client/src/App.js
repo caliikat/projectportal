@@ -39,6 +39,18 @@ class App extends Component {
     console.log(todos);   
   }
 
+  editTodo = ( queueTitle, description, dueDate ) => {
+    let todos = this.state.todos; 
+    todos.push({
+      "id": (new Date).getTime(),
+      "queueTitle": queueTitle,
+      "description": description,
+      "dueDate": dueDate,
+    })
+    this.setState({ todos}); 
+    console.log(todos);   
+  }
+
   render() {
     return (
       <div className="App">
