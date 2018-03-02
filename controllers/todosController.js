@@ -16,6 +16,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log("created");
     db.Todo
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -28,6 +29,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
+    console.log(req.params.id);
     db.Todo
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())

@@ -7,7 +7,7 @@ function TodoList ({todo, updateTodo, removeTodo}) {
     return (
       <TodoItem
         key={index}
-        id={todo.id}
+        id={todo._id}
         todo={todo}
         queueTitle={todo.queueTitle}
         description={todo.description}

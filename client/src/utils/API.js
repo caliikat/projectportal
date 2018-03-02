@@ -11,6 +11,8 @@ export default {
   },
   // Deletes the todo with the given id
   deleteTodo: function(id) {
+    console.log("delete todo");
+    console.log(id);
     return axios.delete("/api/todos/" + id);
   },
   // Saves a todo to the database
