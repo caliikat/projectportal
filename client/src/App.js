@@ -25,9 +25,10 @@ class App extends Component {
   }
 
   removeTodo = id => {
-    const todos = this.state.todos.filter(todo => todo.id !== id);
-    // this.setState({ todos});
-    API.deleteTodo(todos);
+    const todos = this.state.todos.filter(todo => todo._id != id);
+    this.setState({ todos});
+    API.deleteTodo(id);
+
   };
 
   addTodo = ( queueTitle, description, dueDate ) => {
@@ -40,8 +41,7 @@ class App extends Component {
     }
     todos.push(newTodo);
     this.setState({ todos}); 
-    API.saveTodo(newTodo);
-    console.log(todos);   
+    API.saveTodo(newTodo);  
   }
 
   editTodo = ( queueTitle, description, dueDate ) => {
@@ -62,20 +62,14 @@ class App extends Component {
       <div className="App">
         <Nav />
         <Wrapper>
-          {/* <Route path="/" component={Home}/>
-          <Route path="/jobQueue" component={TodoList}/> */}
-
           <TodoForm 
             addTodo= { this.addTodo}
-            
           />
-          
            <TodoList 
               todo={this.state.todos} 
               updateTodo={ () => {} } 
               removeTodo={ this.removeTodo }
            /> 
-
         </Wrapper>
         <Footer />
       </div>

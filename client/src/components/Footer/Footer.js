@@ -4,7 +4,7 @@ import "./Footer.css";
 const Footer = () =>
   <div className= "footer">
     <div id="ftr">
-    Sarah Adams | Kat Allen | Mia Hawkins - 2018
+    Kat Allen | Mia Hawkins - 2018
     </div>
   </div>;
 
