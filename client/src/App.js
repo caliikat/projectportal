@@ -27,27 +27,34 @@ class App extends Component {
   removeTodo = id => {
     const todos = this.state.todos.filter(todo => todo._id != id);
     this.setState({ todos});
-    API.deleteTodo(id);
+    API.deleteTodo(id)
+      .then(res => this.loadTodos())
+      .catch(err => console.log(err));
 
   };
 
   addTodo = ( queueTitle, description, dueDate ) => {
     let todos = this.state.todos; 
+    let id = (new Date).getTime();
     let newTodo = {
-      "id": (new Date).getTime(),
       "queueTitle": queueTitle,
       "description": description,
       "dueDate": dueDate,
     }
-    todos.push(newTodo);
-    this.setState({ todos}); 
-    API.saveTodo(newTodo);  
+
+    let self = this;
+    API.saveTodo(newTodo)
+      .then(function (response) {
+        console.log(response);
+        todos.push(response.data);
+        self.setState({ todos}); 
+      })
   }
 
   editTodo = ( queueTitle, description, dueDate ) => {
     let todos = this.state.todos; 
     todos.push({
-      "id": (new Date).getTime(),
+      "_id": (new Date).getTime(),
       "queueTitle": queueTitle,
       "description": description,
       "dueDate": dueDate,
