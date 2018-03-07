@@ -13,11 +13,9 @@ const TodoItem = props => {
                         <p><b>Due Date:</b> {props.dueDate}</p> 
                     </div>
                     <button className="dButton" onClick={() => props.removeTodo(props.id)}>Delete</button>
-                    <button className="eButton" onClick={() => props.editTodo()}>Edit</button>
+                    <button className="eButton" onClick={() => props.editTodo(props.id)}>Edit</button>
                 </div>
-                
             </div>
-
         </div>
     );
 };
