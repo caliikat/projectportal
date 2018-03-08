@@ -8,78 +8,35 @@ import TodoItem from './components/TodoItem/TodoItem';
 import TodoList from './components/TodoList/TodoList';
 import TodoForm from './components/TodoForm/TodoForm';
 import Footer from "./components/Footer";
+import Home from "./Pages/Home";
+import Todo from "./Pages/Todo";
+import Edit from "./Pages/Edit";
 
 class App extends Component {
-  state = {
-    todos: []
-  };
   
-  componentDidMount() {
-    this.loadTodos();
-  }
-
-  loadTodos = () => {
-    API.getTodos()
-      .then(res => this.setState({ todos: res.data}))
-      .catch(err => console.log(err));
-  }
-
-  removeTodo = id => {
-    const todos = this.state.todos.filter(todo => todo._id != id);
-    this.setState({ todos});
-    API.deleteTodo(id)
-      .then(res => this.loadTodos())
-      .catch(err => console.log(err));
-
-  };
-
-  addTodo = ( queueTitle, description, dueDate ) => {
-    let todos = this.state.todos; 
-    let id = (new Date).getTime();
-    let newTodo = {
-      "queueTitle": queueTitle,
-      "description": description,
-      "dueDate": dueDate,
-    }
-
-    let self = this;
-    API.saveTodo(newTodo)
-      .then(function (response) {
-        console.log(response);
-        todos.push(response.data);
-        self.setState({ todos}); 
-      })
-  }
-
-  editTodo = ( queueTitle, description, dueDate ) => {
-    let todos = this.state.todos; 
-    todos.push({
-      "_id": (new Date).getTime(),
-      "queueTitle": queueTitle,
-      "description": description,
-      "dueDate": dueDate,
-    })
-    this.setState({ todos}); 
-
-    console.log(todos);   
-  }
 
   render() {
     return (
-      <div className="App">
-        <Nav />
-        <Wrapper>
-          <TodoForm 
-            addTodo= { this.addTodo}
-          />
-           <TodoList 
-              todo={this.state.todos} 
-              updateTodo={ () => {} } 
-              removeTodo={ this.removeTodo }
-           /> 
-        </Wrapper>
-        <Footer />
-      </div>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Wrapper>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/todo" component={Todo} />
+            <Route exact path="/edit" component={Edit} />
+
+            {/* <TodoForm 
+              addTodo= { this.addTodo}
+            />
+            <TodoList 
+                todo={this.state.todos} 
+                updateTodo={ () => {} } 
+                removeTodo={ this.removeTodo }
+            />  */}
+          </Wrapper>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }

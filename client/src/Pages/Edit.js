@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import API from "./utils/API";
-import Nav from "./components/Nav";
-import Wrapper from "./components/Wrapper";
-import Footer from "./components/Footer";
+import '../App.css';
+import API from "../utils/API";
+import Nav from "../components/Nav";
+import Wrapper from "../components/Wrapper";
+import Footer from "../components/Footer";
 
 class Edit extends Component {
     state = {
