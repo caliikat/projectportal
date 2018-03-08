@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import './App.css';
+import '../App.css';
+import Nav from "../components/Nav";
+import Wrapper from "../components/Wrapper";
+import Footer from "../components/Footer";
+
+class Home extends Component {
 
 
   render() {
     return (
       <div className="App">
-        <Nav />
+        
         <Wrapper>
           {/* login */}
+          <p> Hi</p>
         </Wrapper>
-        <Footer />
+        
       </div>
     );
-  }
+  };
 }
 
-export default App;
+export default Home;

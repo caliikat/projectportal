@@ -2,8 +2,11 @@ import React, {Component} from "react";
 import "./TodoItem.css";
 
 
+
+
 const TodoItem = props => {
     return (
+
         <div className="todoitem">
             <div className="content">
                 <div className="todoItem">
@@ -13,7 +16,7 @@ const TodoItem = props => {
                         <p><b>Due Date:</b> {props.dueDate}</p> 
                     </div>
                     <button className="dButton" onClick={() => props.removeTodo(props.id)}>Delete</button>
-                    <button className="eButton" onClick={() => props.editTodo(props.id)}>Edit</button>
+                    <button className="eButton" onClick={() => props.updateTodo(props.id, props.queueTitle, props.description, props.dueDate)}>Edit</button>
                 </div>
             </div>
         </div>
