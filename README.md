@@ -1,13 +1,37 @@
-The Project Portal is a convenient app that can accomplish many of the daily tasks needed for work. By using React-js, it gives us the ability to choose which components are necessary for each business. The first component is a Job Queue list. 
+# react-firebase-authentication
 
-This is our landing page before adding anything to the Job Queue
+[![Build Status](https://travis-ci.org/rwieruch/react-firebase-authentication.svg?branch=master)](https://travis-ci.org/rwieruch/react-firebase-authentication)
 
-![Alt text](./pictures/landing.png?raw=true "Landing Page")
+* Found in [Taming the State in React](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE)
+* [Live](https://react-firebase-authentication.wieruch.com/)
 
-This is when you add to the jobQueue:
+## Features
 
-![Alt text](./pictures/add.png?raw=true "Landing Page")
+* uses:
+  * only React (create-react-app)
+  * firebase 4.3.1
+  * react-router 4.2.0
+  * no Redux/MobX
+* features:
+  * Sign In
+  * Sign Up
+  * Sign Out
+  * Password Forget
+  * Password Change
+  * Protected Routes with Authorization
+  * Database: Users
 
-This is when you delete to the jobQueue:
+## Installation
 
-![Alt text](./pictures/delete.png?raw=true "Landing Page")
+* `git clone git@github.com:rwieruch/react-firebase-authentication.git`
+* `cd react-firebase-authentication`
+* `npm install`
+* `npm start`
+* visit http://localhost:3000/
+* Use your own Firebase Credentials
+
+### Use your own Firebase Credentials
+
+* visit https://firebase.google.com/ and create a Firebase App
+* copy and paste your Credentials from your Firebase App into src/firebase/firebase.js
+* activate Email/Password Sign-In Method in your Firebase App
