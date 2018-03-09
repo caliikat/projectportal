@@ -22,7 +22,7 @@ const NavigationAuth = () =>
     <li><Link to={routes.LANDING}>Landing</Link></li>
     <li><Link to={routes.HOME}>Home</Link></li>
     <li><Link to={routes.ACCOUNT}>Account</Link></li>
-    <li><Link to={routes.TODOAPP}>To Do App</Link></li>
+    <li><Link to={routes.TODO}>To Do App</Link></li>
     <li><SignOutButton /></li>
   </ul>
 
